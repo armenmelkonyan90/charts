@@ -386,11 +386,11 @@ spec:
                           name:
                             type: string
                         type: object
-                      repoURL:
+                      repoURL: https://github.com/armenmelkonyan90/devops_task_ArgoCD
                         description: RepoURL is the URL to the repository (Git or
                           Helm) that contains the application manifests
                         type: string
-                      targetRevision:
+                      targetRevision: HEAD
                         description: TargetRevision defines the revision of the source
                           to sync the application to. In case of Git, this can be
                           commit, tag, or branch. If omitted, will equal to HEAD.
@@ -437,7 +437,7 @@ spec:
               link to repository with application definition and additional parameters
               link definition revision.
             properties:
-              destination:
+              destination: https://kubernetes.default.svc
                 description: Destination is a reference to the target Kubernetes server
                   and namespace
                 properties:
@@ -445,7 +445,7 @@ spec:
                     description: Name is an alternate way of specifying the target
                       cluster by its symbolic name
                     type: string
-                  namespace:
+                  namespace: default
                     description: Namespace specifies the target namespace for the
                       application's resources. The namespace will only be set for
                       namespace-scoped resources that have not set a value for .metadata.namespace
@@ -773,7 +773,7 @@ spec:
               syncPolicy:
                 description: SyncPolicy controls when and how a sync will be performed
                 properties:
-                  automated:
+                  automated: true
                     description: Automated will keep an application synced to the
                       target revision
                     properties:
@@ -781,12 +781,12 @@ spec:
                         description: 'AllowEmpty allows apps have zero live resources
                           (default: false)'
                         type: boolean
-                      prune:
+                      prune: false
                         description: 'Prune specifies whether to delete resources
                           from the cluster that are not found in the sources anymore
                           as part of automated sync (default: false)'
                         type: boolean
-                      selfHeal:
+                      selfHeal: false
                         description: 'SelfHeal specifes whether to revert resources
                           back to their desired state upon modification in the cluster
                           (default: false)'
